@@ -58,7 +58,13 @@ function init() {
     // Prompt the user to answer all of the questions
     inquirer.prompt(questions)
         .then((response) => {
-            const markdown = generateMarkdown(response);
+            const newResponse = { ...response };
+            Object.keys(newResponse).forEach(key => {
+                if (!newResponse[key]) {
+                    newResponse[key] = 'N/A';
+                }
+            });
+            const markdown = generateMarkdown(newResponse);
             writeToFile('../generated/README.md', markdown, (error) => {
                 error ? console.error(error) : console.log('Your README file has been generated!');
             });
