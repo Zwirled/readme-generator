@@ -41,15 +41,15 @@ const questions = [
 // Prompt the user to answer all of the questions
 inquirer.prompt(questions)
     .then((response) => {
-        console.log(response);
-        fs.writeFile('../generated/readme.md', JSON.stringify(response), (error) => {
+        const markdown = generateMarkdown(response);
+        writeToFile('../generated/README.md', markdown, (error) => {
             error ? console.error(error) : console.log('Success!');
         });
     });
 
 // function to write README file
-function writeToFile(fileName, data) {
-
+function writeToFile(fileName, data, callback) {
+    fs.writeFile(fileName, data, callback);
 }
 
 
