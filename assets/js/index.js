@@ -38,25 +38,22 @@ const questions = [
 
 ];
 
-// Prompt the user to answer all of the questions
-inquirer.prompt(questions)
-    .then((response) => {
-        const markdown = generateMarkdown(response);
-        writeToFile('../generated/README.md', markdown, (error) => {
-            error ? console.error(error) : console.log('Success!');
+//function to initialise programme
+function init() {
+    // Prompt the user to answer all of the questions
+    inquirer.prompt(questions)
+        .then((response) => {
+            const markdown = generateMarkdown(response);
+            writeToFile('../generated/README.md', markdown, (error) => {
+                error ? console.error(error) : console.log('Your README file has been generated!');
+            });
         });
-    });
+}
 
 // function to write README file
 function writeToFile(fileName, data, callback) {
     fs.writeFile(fileName, data, callback);
 }
-
-
-// function to initialise program
-function init() {
-
-};
 
 // call the init function to initialise the program
 init();
