@@ -1,11 +1,14 @@
+// Import the necessary packages
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path');
 const generateMarkdown = require('./markdown');
 
 // Check to make sure email address is a valid structure
 const validateEmail = function (email) {
+    // Use regex to check if email is in a valid format
     const emailExists = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
+    // If email is valid, return true. Otherwise, log an error message and return false
     if (emailExists) {
         return true;
     } else {
@@ -53,19 +56,25 @@ const questions = [
     }
 ];
 
-//function to initialise programme
+// Function to initialise programme
 function init() {
     // Prompt the user to answer all of the questions
     inquirer.prompt(questions)
         .then((response) => {
+            // Copy the response object to a new object so that the original is not mutated
             const newResponse = { ...response };
+
+            // For each key in the newResponse object, if the value is falsy (empty, undefined, etc.), replace it with "N/A"
             Object.keys(newResponse).forEach(key => {
                 if (!newResponse[key]) {
                     newResponse[key] = 'N/A';
                 }
             });
+            // Generate markdown text using the modified response object
             const markdown = generateMarkdown(newResponse);
+            // Write the markdown text to a file
             writeToFile('../generated/README.md', markdown, (error) => {
+                // If an error occurs, log the error message. Otherwise, log a success message
                 error ? console.error(error) : console.log('Your README file has been generated!');
             });
         });
@@ -73,8 +82,9 @@ function init() {
 
 // function to write README file
 function writeToFile(fileName, data, callback) {
+    // Write data to the file specified by fileName
     fs.writeFile(fileName, data, callback);
 }
 
-// call the init function to initialise the program
+// Call the init function to initialise the program
 init();

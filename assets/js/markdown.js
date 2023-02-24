@@ -1,5 +1,6 @@
-// function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(response) {
+    // Template literal to create markdown based on user's input
     return `
 # ${response.title}
 
@@ -40,4 +41,5 @@ ${response.tests}
 Please send any questions you have to ${response.questions} and I will get back to you as soon as I can.
 `};
 
+// Export the generateMarkdown function for other modules to use
 module.exports = generateMarkdown;
