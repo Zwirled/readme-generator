@@ -3,6 +3,17 @@ const fs = require('fs');
 const path = require('path');
 const generateMarkdown = require('./markdown');
 
+// Check to make sure email address is a valid structure
+const validateEmail = function (email) {
+    const emailExists = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+    if (emailExists) {
+        return true;
+    } else {
+        console.log("\nPlease enter a valid email");
+        return false;
+    }
+};
+
 // array of questions for user
 const questions = [
     {
@@ -29,13 +40,17 @@ const questions = [
     }, {
         type: 'input',
         name: 'contributing',
-        message: 'Please provide guidelines for contributing to the project:',
+        message: 'Enter details on guidelines for contributing to the project:',
     }, {
         type: 'input',
         name: 'tests',
-        message: 'Please provide instructions for running tests on the project:',
-    },
-
+        message: 'Enter instructions for running tests on the project:',
+    }, {
+        type: 'input',
+        name: 'questions',
+        message: 'Enter an email address for questions to be sent to regarding the project:',
+        validate: validateEmail,
+    }
 ];
 
 //function to initialise programme

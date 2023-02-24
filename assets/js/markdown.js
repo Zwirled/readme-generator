@@ -23,6 +23,10 @@ ${response.installation}
 
 ${response.usage}
 
+## License
+
+This project is licensed under the ${response.license} license.
+
 ## Contributing
 
 ${response.contributing}
@@ -31,10 +35,9 @@ ${response.contributing}
 
 ${response.tests}
 
-## License
+## Questions
 
-This project is licensed under the ${response.license} license.
-
+Please send any questions you have to ${response.questions} and I will get back to you as soon as I can.
 `};
 
 module.exports = generateMarkdown;
