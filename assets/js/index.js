@@ -42,6 +42,9 @@ const questions = [
 inquirer.prompt(questions)
     .then((response) => {
         console.log(response);
+        fs.writeFile('../generated/readme.md', JSON.stringify(response), (error) => {
+            error ? console.error(error) : console.log('Success!');
+        });
     });
 
 // function to write README file
