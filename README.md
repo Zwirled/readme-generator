@@ -28,6 +28,11 @@ This project is licensed under the MIT license.
 
 To contribute to this project, please either clone the GitHub repository, or get in touch.
 
+## Credits
+
+I created the email validation with the help of this Stack Overflow thread:
+https://stackoverflow.com/questions/65189877/how-can-i-validate-that-a-user-input-their-email-when-using-inquirer-npm
+
 ## Tests
 
 N/A
