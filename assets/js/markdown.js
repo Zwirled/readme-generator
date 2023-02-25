@@ -2,14 +2,10 @@
 function generateMarkdown(response) {
     // Template literal to create markdown based on user's input
 
-    let licenseBadge = '';
-    if (response.license !== 'None') {
-        licenseBadge = `![License](https://img.shields.io/badge/license-${response.license}-brightgreen)`;
-    }
     return `
 # ${response.title}
 
-${licenseBadge}
+![${response.license.name} license badge](${response.license.badge})
 
 ## Description
 
@@ -33,7 +29,9 @@ ${response.usage}
 
 ## License
 
-This project is licensed under the ${response.license} license.
+This project is licensed under the ${response.license.name} license.
+
+![${response.license.name} license badge](${response.license.badge})
 
 ## Contributing
 
@@ -45,7 +43,9 @@ ${response.tests}
 
 ## Questions
 
-Please send any questions you have to ${response.questions} and I will get back to you as soon as I can.
+To visit my GitHub profile, please click here: https://github.com/${response.github}.
+
+If you have any questions, please send them to ${response.questions} and I will get back to you as soon as I can.
 `};
 
 // Export the generateMarkdown function for other modules to use

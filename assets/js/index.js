@@ -37,9 +37,45 @@ const questions = [
         message: 'Enter details on the usage of the project:',
     }, {
         type: 'list',
-        name: 'license',
         message: 'Please select a license type for the project:',
-        choices: ['MIT', 'GNU GPLv3', 'Apache License 2.0', 'ISC', 'None'],
+        name: 'license',
+        choices: [
+            {
+                name: 'MIT',
+                value: {
+                    name: 'MIT',
+                    badge: 'https://img.shields.io/badge/license-MIT-brightgreen'
+                }
+            },
+            {
+                name: 'GNU GPLv3',
+                value: {
+                    name: 'GNU GPLv3',
+                    badge: 'https://img.shields.io/badge/license-GNU%20GPLv3-brightgreen'
+                }
+            },
+            {
+                name: 'Apache License 2.0',
+                value: {
+                    name: 'Apache License 2.0',
+                    badge: 'https://img.shields.io/badge/license-Apache%20License%202.0-brightgreen'
+                }
+            },
+            {
+                name: 'ISC',
+                value: {
+                    name: 'ISC',
+                    badge: 'https://img.shields.io/badge/license-ISC-brightgreen'
+                }
+            },
+            {
+                name: 'None',
+                value: {
+                    name: 'None',
+                    badge: 'https://img.shields.io/badge/license-None-brightgreen'
+                }
+            }
+        ]
     }, {
         type: 'input',
         name: 'contributing',
@@ -48,6 +84,10 @@ const questions = [
         type: 'input',
         name: 'tests',
         message: 'Enter instructions for running tests on the project:',
+    }, {
+        type: 'input',
+        name: 'github',
+        message: 'Enter your GitHub username:',
     }, {
         type: 'input',
         name: 'questions',
