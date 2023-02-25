@@ -25,7 +25,7 @@ ${response.installation}
 
 ## Usage
 
-![screenshot of ${response.title}](assets/images/screenshot.png)
+![screenshot of ${response.title}](../images/screenshot.png)
 
 ${response.usage}
 
