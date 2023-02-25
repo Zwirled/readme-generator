@@ -1,8 +1,15 @@
 // Function to generate markdown for README
 function generateMarkdown(response) {
     // Template literal to create markdown based on user's input
+
+    let licenseBadge = '';
+    if (response.license !== 'None') {
+        licenseBadge = `![License](https://img.shields.io/badge/license-${response.license}-brightgreen)`;
+    }
     return `
 # ${response.title}
+
+${licenseBadge}
 
 ## Description
 
