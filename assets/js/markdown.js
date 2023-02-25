@@ -25,6 +25,8 @@ ${response.installation}
 
 ## Usage
 
+![screenshot of ${response.title}](assets/images/screenshot.png)
+
 ${response.usage}
 
 ## License

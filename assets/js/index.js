@@ -5,7 +5,7 @@ const generateMarkdown = require('./markdown');
 
 // Check to make sure email address is a valid structure
 const validateEmail = function (email) {
-    // Use regex to check if email is in a valid format
+    // Use (regular expression) regex to check if email is in a valid format
     const emailExists = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
     // If email is valid, return true. Otherwise, log an error message and return false
